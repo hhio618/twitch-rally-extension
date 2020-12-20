@@ -11,7 +11,7 @@ function getCreatorCoinBySymbol(coinSymbol){
 // get price after currency conversion.
 function getPrice(usdPrice, currencySymbol, floatPrecision){
   return getCurrencyRates().then(result => {
-    return usdPrice * result.rates[currencySymbol].toFixed(floatPrecision);
+    return (usdPrice * parseFloat(result.rates[currencySymbol])).toFixed(floatPrecision);
   });
 }
 
@@ -23,25 +23,25 @@ function getCurrencyRates(){
 
 // save broadcaster configs
 function saveConfig(twitch, configs){
+  twitch.rig.log(configs);
   twitch.configuration.set("broadcaster", "1", JSON.stringify(configs));
 }
 
 // load broadcaster configs
 function loadConfig(twitch){
-  if (twitch.configuration.broadcastr){
-        twitch.rig.log("yeah");
+  if (twitch.configuration.broadcaster){
       try{
-        var result = twitch.configuration.broadcaster.content;
-        twitch.rig.log("yeah");
+        var result = JSON.parse(twitch.configuration.broadcaster.content);
+        twitch.rig.log(typeof result);
         if (typeof result == "object"){
             return result;
         }else{
-          twitch.rig.log("invalid configs");
+          twitch.rig.log("invalid config");
         }
       }catch(e){
         twitch.rig.log(e);
       }
   }
-    twitch.rig.log("no shit");
+  twitch.rig.log("no configs");
   return ""
 }
