@@ -1,9 +1,10 @@
 # Twitch rally extension
-A simple extension that fetches rally.io CreatorCoins prices, and uses twitch `Extension Configuration Service` to save broadcaster configs.
+A simple extension that fetches and shows realtime rally.io CreatorCoin prices. 
 
 
 ## Requirements
 - A [Twitch Extension](https://dev.twitch.tv/console/extensions)
+- This extension uses twitch `Extension Configuration Service` to save broadcaster configs.
 
 
 ## Installation 
