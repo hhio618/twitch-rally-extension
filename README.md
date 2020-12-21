@@ -1,3 +1,7 @@
+> ### ⚠️ Note!
+>
+> Moved to this fork https://github.com/hhio618/PriceTicker-TwitchExtension
+
 # Twitch rally extension
 A simple extension that fetches and shows realtime rally.io CreatorCoin prices. 
 
